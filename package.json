@@ -1,0 +1,42 @@
+{
+  "name": "tree-sitter-tcl",
+  "version": "0.1.0",
+  "description": "A Tree-sitter grammar for Tcl",
+  "main": "bindings/node",
+  "scripts": {
+    "generate": "npm run generate-tcl && npm run generate-tclsh",
+    "generate-tcl": "cd tcl && tree-sitter generate --no-bindings",
+    "generate-tclsh": "cd tclsh && tree-sitter generate --no-bindings",
+    "test": "npm run test-tcl && npm run test-tclsh",
+    "test-tcl": "npm run generate-tcl && cd tcl && tree-sitter test",
+    "test-tclsh": "npm run generate-tclsh && cd tclsh && tree-sitter test"
+  },
+  "keywords": [
+    "tree-sitter",
+    "tcl"
+  ],
+  "author": "Cezary Drożak",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "hg",
+    "url": "https://hg.sr.ht/~cdrozak/tree-sitter-tcl"
+  },
+  "dependencies": {
+    "nan": "^2.15.0",
+    "tree-sitter-cli": "^0.20.6"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.tcl",
+      "file-types": [
+        "tcl"
+      ],
+      "injection-regex": "tcl",
+      "first-line-regex": "^#!(/usr/bin/tclsh|/bin/tclsh|/usr/bin/env tclsh)$",
+      "path": "tclsh",
+      "highlights": [
+        "tclsh/queries/highlights.scm"
+      ]
+    }
+  ]
+}
