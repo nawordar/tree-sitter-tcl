@@ -161,6 +161,11 @@
     }
   },
   {
+    "type": "variable_substitution",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "word",
     "named": true,
     "fields": {},
@@ -219,6 +224,14 @@
     "named": false
   },
   {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "${",
+    "named": false
+  },
+  {
     "type": ";",
     "named": false
   },
@@ -236,10 +249,6 @@
   },
   {
     "type": "escape_sequence",
-    "named": true
-  },
-  {
-    "type": "variable_substitution",
     "named": true
   },
   {

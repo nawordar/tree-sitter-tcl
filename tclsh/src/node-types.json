@@ -401,6 +401,11 @@
     }
   },
   {
+    "type": "variable_substitution",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "word",
     "named": true,
     "fields": {},
@@ -459,6 +464,14 @@
     "named": false
   },
   {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "${",
+    "named": false
+  },
+  {
     "type": ";",
     "named": false
   },
@@ -497,10 +510,6 @@
   {
     "type": "then",
     "named": false
-  },
-  {
-    "type": "variable_substitution",
-    "named": true
   },
   {
     "type": "{",
