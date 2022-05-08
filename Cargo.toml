@@ -1,7 +1,7 @@
 [package]
 name = "tree-sitter-tcl"
 description = "tcl grammar for the tree-sitter parsing library"
-version = "0.0.1"
+version = "0.1.0"
 keywords = ["incremental", "parsing", "tcl"]
 categories = ["parsing", "text-editors"]
 repository = "https://hg.sr.ht/tree-sitter/tree-sitter-tcl"
