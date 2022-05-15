@@ -3,6 +3,8 @@
 
 enum TokenType {
     CONCAT,
+    CLOSING_BRACE,
+    CLOSING_BRACKET,
 };
 
 static bool is_end_of_file_ahead(TSLexer *lexer) {
@@ -17,15 +19,15 @@ static bool is_character_ahead(TSLexer *lexer, char character) {
     return lexer->lookahead == character;
 }
 
-
-static bool is_concat_valid(TSLexer *lexer) {
-    return !(
-        is_end_of_file_ahead(lexer)
-        || is_whitespace_ahead(lexer)
-        || is_character_ahead(lexer, '}')
-        || is_character_ahead(lexer, ']')
-        || is_character_ahead(lexer, ';')
-    );
+static bool is_concat_valid(TSLexer *lexer, const bool *valid_symbols) {
+    return valid_symbols[CONCAT]
+        && !(
+            is_end_of_file_ahead(lexer)
+            || is_whitespace_ahead(lexer)
+            || (is_character_ahead(lexer, '}') && valid_symbols[CLOSING_BRACE])
+            || (is_character_ahead(lexer, ']') && valid_symbols[CLOSING_BRACKET])
+            || is_character_ahead(lexer, ';')
+        );
 }
 
 static inline bool external_scanner_scan(
@@ -33,7 +35,7 @@ static inline bool external_scanner_scan(
     TSLexer *lexer,
     const bool *valid_symbols
 ) {
-    if (valid_symbols[CONCAT] && is_concat_valid(lexer)) {
+    if (is_concat_valid(lexer, valid_symbols)) {
         lexer->result_symbol = CONCAT;
         return true;
     }
