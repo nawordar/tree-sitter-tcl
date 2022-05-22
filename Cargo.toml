@@ -10,10 +10,13 @@ license = "MIT"
 
 build = "bindings/rust/build.rs"
 include = [
-  "bindings/rust/*",
-  "grammar.js",
-  "queries/*",
-  "src/*",
+  "common",
+  "queries",
+  "bindings/rust",
+  "tcl/grammar.js",
+  "tcl/src",
+  "tclsh/grammar.js",
+  "tclsh/src",
 ]
 
 [lib]

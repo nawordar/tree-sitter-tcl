@@ -1,6 +1,7 @@
 fn main() {
     let root_dir = std::path::Path::new(".");
     let tcl_dir = root_dir.join("tcl").join("src");
+    let tclsh_dir = root_dir.join("tclsh").join("src");
 
     let mut c_config = cc::Build::new();
     c_config.include(&tcl_dir);
@@ -9,13 +10,17 @@ fn main() {
         .flag_if_supported("-Wno-unused-but-set-variable")
         .flag_if_supported("-Wno-trigraphs");
 
-    let parser_path = tcl_dir.join("parser.c");
-    c_config.file(&parser_path);
+    let sources = [
+        tcl_dir.join("parser.c"),
+        tcl_dir.join("scanner.c"),
+        tclsh_dir.join("parser.c"),
+        tclsh_dir.join("scanner.c"),
+    ];
 
-    let scanner_path = tcl_dir.join("scanner.c");
-    c_config.file(&scanner_path);
-    println!("cargo:rerun-if-changed={}", scanner_path.to_str().unwrap());
+    for source in &sources {
+        c_config.file(source);
+        println!("cargo:rerun-if-changed={}", source.to_str().unwrap());
+    }
 
     c_config.compile("parser");
-    println!("cargo:rerun-if-changed={}", parser_path.to_str().unwrap());
 }
