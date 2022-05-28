@@ -28,8 +28,8 @@ void Init(Local<Object> exports, Local<Object> module) {
   Nan::SetInternalFieldPointer(tclsh_instance, 0, tree_sitter_tclsh());
   Nan::Set(tclsh_instance, Nan::New("name").ToLocalChecked(), Nan::New("tclsh").ToLocalChecked());
 
-  Nan::Set(module, Nan::New("tcl").ToLocalChecked(), tcl_instance);
-  Nan::Set(module, Nan::New("tclsh").ToLocalChecked(), tclsh_instance);
+  Nan::Set(exports, Nan::New("tcl").ToLocalChecked(), tcl_instance);
+  Nan::Set(exports, Nan::New("tclsh").ToLocalChecked(), tclsh_instance);
 }
 
 NODE_MODULE(tree_sitter_tcl_binding, Init)

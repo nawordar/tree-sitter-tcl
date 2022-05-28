@@ -7,9 +7,10 @@
     "generate": "npm run generate-tcl && npm run generate-tclsh",
     "generate-tcl": "cd tcl && tree-sitter generate --no-bindings",
     "generate-tclsh": "cd tclsh && tree-sitter generate --no-bindings",
-    "test": "npm run test-tcl && npm run test-tclsh",
+    "test": "npm run test-tcl && npm run test-tclsh && npm run test-bindings",
     "test-tcl": "npm run generate-tcl && cd tcl && tree-sitter test",
-    "test-tclsh": "npm run generate-tclsh && cd tclsh && tree-sitter test"
+    "test-tclsh": "npm run generate-tclsh && cd tclsh && tree-sitter test",
+    "test-bindings": "npm run generate && node test/bindings.mjs"
   },
   "keywords": [
     "tree-sitter",
@@ -22,7 +23,11 @@
     "url": "https://hg.sr.ht/~cdrozak/tree-sitter-tcl"
   },
   "dependencies": {
-    "nan": "^2.15.0",
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.36",
+    "tree-sitter": "^0.20.0",
     "tree-sitter-cli": "^0.20.6"
   },
   "tree-sitter": [
