@@ -1,5 +1,6 @@
 {
   "name": "tcl",
+  "word": "_word_content",
   "rules": {
     "source_file": {
       "type": "SEQ",

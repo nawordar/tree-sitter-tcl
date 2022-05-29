@@ -27,6 +27,11 @@
     }
   },
   {
+    "type": "boolean_word",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "braced_word",
     "named": true,
     "fields": {},
@@ -34,6 +39,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "boolean_word",
+          "named": true
+        },
         {
           "type": "braced_word",
           "named": true
@@ -79,6 +88,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "boolean_word",
+            "named": true
+          },
           {
             "type": "braced_word",
             "named": true
@@ -188,6 +201,10 @@
         "required": true,
         "types": [
           {
+            "type": "boolean_word",
+            "named": true
+          },
+          {
             "type": "braced_word",
             "named": true
           },
@@ -233,6 +250,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "boolean_word",
+            "named": true
+          },
           {
             "type": "braced_word",
             "named": true
@@ -316,6 +337,10 @@
         "required": true,
         "types": [
           {
+            "type": "boolean_word",
+            "named": true
+          },
+          {
             "type": "braced_word",
             "named": true
           },
@@ -345,6 +370,10 @@
         "multiple": false,
         "required": false,
         "types": [
+          {
+            "type": "boolean_word",
+            "named": true
+          },
           {
             "type": "braced_word",
             "named": true
@@ -428,6 +457,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "boolean_word",
+          "named": true
+        },
         {
           "type": "braced_word",
           "named": true

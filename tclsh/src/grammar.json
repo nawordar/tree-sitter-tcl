@@ -1,5 +1,6 @@
 {
   "name": "tclsh",
+  "word": "_word_content",
   "rules": {
     "source_file": {
       "type": "SEQ",
@@ -115,6 +116,10 @@
     "_word": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "boolean_word"
+        },
         {
           "type": "SYMBOL",
           "name": "concatenation"
@@ -470,6 +475,77 @@
         {
           "type": "STRING",
           "value": "}"
+        }
+      ]
+    },
+    "boolean_word": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "[yY][eE][sS]"
+            }
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "[oO][nN]"
+            }
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "[tT][rR][uU][eE]"
+            }
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "[nN][oO]"
+            }
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "[oO][fF][fF]"
+            }
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "[fF][aA][lL][sS][eE]"
+            }
+          }
         }
       ]
     },
