@@ -56,6 +56,10 @@
           "named": true
         },
         {
+          "type": "number_word",
+          "named": true
+        },
+        {
           "type": "quoted_word",
           "named": true
         },
@@ -102,6 +106,10 @@
           },
           {
             "type": "concatenation",
+            "named": true
+          },
+          {
+            "type": "number_word",
             "named": true
           },
           {
@@ -217,6 +225,10 @@
             "named": true
           },
           {
+            "type": "number_word",
+            "named": true
+          },
+          {
             "type": "quoted_word",
             "named": true
           },
@@ -264,6 +276,10 @@
           },
           {
             "type": "concatenation",
+            "named": true
+          },
+          {
+            "type": "number_word",
             "named": true
           },
           {
@@ -353,6 +369,10 @@
             "named": true
           },
           {
+            "type": "number_word",
+            "named": true
+          },
+          {
             "type": "quoted_word",
             "named": true
           },
@@ -384,6 +404,10 @@
           },
           {
             "type": "concatenation",
+            "named": true
+          },
+          {
+            "type": "number_word",
             "named": true
           },
           {
@@ -474,6 +498,10 @@
           "named": true
         },
         {
+          "type": "number_word",
+          "named": true
+        },
+        {
           "type": "quoted_word",
           "named": true
         },
@@ -535,6 +563,10 @@
   {
     "type": "if",
     "named": false
+  },
+  {
+    "type": "number_word",
+    "named": true
   },
   {
     "type": "set",

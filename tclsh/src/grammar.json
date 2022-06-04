@@ -122,6 +122,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "number_word"
+        },
+        {
+          "type": "SYMBOL",
           "name": "concatenation"
         },
         {
@@ -548,6 +552,30 @@
           }
         }
       ]
+    },
+    "number_word": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "-?\\d+(\\.\\d+)?([Ee]-?\\d+)?"
+            },
+            {
+              "type": "PATTERN",
+              "value": "-?0x[0-9A-Fa-f]+"
+            },
+            {
+              "type": "PATTERN",
+              "value": "-?0b[01]+"
+            }
+          ]
+        }
+      }
     },
     "if_command": {
       "type": "SEQ",
