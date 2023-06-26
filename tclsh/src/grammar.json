@@ -270,7 +270,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "[a-z]+"
+          "value": "[A-Za-z0-9]+"
         }
       ]
     },

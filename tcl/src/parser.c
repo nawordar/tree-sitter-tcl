@@ -5,7 +5,7 @@
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 #endif
 
-#define LANGUAGE_VERSION 13
+#define LANGUAGE_VERSION 14
 #define STATE_COUNT 125
 #define LARGE_STATE_COUNT 26
 #define SYMBOL_COUNT 36
@@ -311,6 +311,134 @@ static const uint16_t ts_non_terminal_alias_map[] = {
   0,
 };
 
+static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
+  [0] = 0,
+  [1] = 1,
+  [2] = 2,
+  [3] = 2,
+  [4] = 4,
+  [5] = 2,
+  [6] = 4,
+  [7] = 4,
+  [8] = 8,
+  [9] = 9,
+  [10] = 4,
+  [11] = 2,
+  [12] = 8,
+  [13] = 13,
+  [14] = 13,
+  [15] = 15,
+  [16] = 16,
+  [17] = 16,
+  [18] = 15,
+  [19] = 19,
+  [20] = 20,
+  [21] = 20,
+  [22] = 19,
+  [23] = 19,
+  [24] = 20,
+  [25] = 25,
+  [26] = 26,
+  [27] = 27,
+  [28] = 28,
+  [29] = 29,
+  [30] = 30,
+  [31] = 28,
+  [32] = 32,
+  [33] = 26,
+  [34] = 30,
+  [35] = 32,
+  [36] = 27,
+  [37] = 29,
+  [38] = 38,
+  [39] = 26,
+  [40] = 40,
+  [41] = 41,
+  [42] = 42,
+  [43] = 42,
+  [44] = 44,
+  [45] = 29,
+  [46] = 32,
+  [47] = 28,
+  [48] = 48,
+  [49] = 41,
+  [50] = 44,
+  [51] = 51,
+  [52] = 51,
+  [53] = 53,
+  [54] = 48,
+  [55] = 40,
+  [56] = 27,
+  [57] = 30,
+  [58] = 53,
+  [59] = 44,
+  [60] = 60,
+  [61] = 61,
+  [62] = 62,
+  [63] = 62,
+  [64] = 62,
+  [65] = 65,
+  [66] = 42,
+  [67] = 48,
+  [68] = 68,
+  [69] = 69,
+  [70] = 51,
+  [71] = 69,
+  [72] = 40,
+  [73] = 73,
+  [74] = 41,
+  [75] = 65,
+  [76] = 61,
+  [77] = 60,
+  [78] = 68,
+  [79] = 73,
+  [80] = 65,
+  [81] = 73,
+  [82] = 68,
+  [83] = 61,
+  [84] = 60,
+  [85] = 69,
+  [86] = 86,
+  [87] = 86,
+  [88] = 86,
+  [89] = 60,
+  [90] = 68,
+  [91] = 51,
+  [92] = 41,
+  [93] = 40,
+  [94] = 61,
+  [95] = 95,
+  [96] = 96,
+  [97] = 97,
+  [98] = 95,
+  [99] = 95,
+  [100] = 100,
+  [101] = 101,
+  [102] = 101,
+  [103] = 100,
+  [104] = 101,
+  [105] = 95,
+  [106] = 101,
+  [107] = 107,
+  [108] = 107,
+  [109] = 109,
+  [110] = 107,
+  [111] = 109,
+  [112] = 112,
+  [113] = 113,
+  [114] = 112,
+  [115] = 115,
+  [116] = 113,
+  [117] = 113,
+  [118] = 112,
+  [119] = 113,
+  [120] = 120,
+  [121] = 112,
+  [122] = 120,
+  [123] = 120,
+  [124] = 120,
+};
+
 static inline bool sym_comment_character_set_1(int32_t c) {
   return (c < '$'
     ? (c < ' '
@@ -358,7 +486,9 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == ']') ADVANCE(27);
       if (lookahead == '{') ADVANCE(25);
       if (lookahead == '}') ADVANCE(21);
-      if (('a' <= lookahead && lookahead <= 'z')) ADVANCE(13);
+      if (('0' <= lookahead && lookahead <= '9') ||
+          ('A' <= lookahead && lookahead <= 'Z') ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(13);
       if (lookahead != 0 &&
           lookahead != '\t' &&
           lookahead != '\r') ADVANCE(14);
@@ -374,7 +504,9 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 2:
       if (lookahead == ' ') SKIP(2)
-      if (('a' <= lookahead && lookahead <= 'z')) ADVANCE(17);
+      if (('0' <= lookahead && lookahead <= '9') ||
+          ('A' <= lookahead && lookahead <= 'Z') ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(17);
       END_STATE();
     case 3:
       if (lookahead == ' ') ADVANCE(19);
@@ -446,7 +578,9 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 13:
       ACCEPT_TOKEN(sym__word_content);
-      if (('a' <= lookahead && lookahead <= 'z')) ADVANCE(13);
+      if (('0' <= lookahead && lookahead <= '9') ||
+          ('A' <= lookahead && lookahead <= 'Z') ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(13);
       if (!sym__word_content_character_set_1(lookahead)) ADVANCE(14);
       END_STATE();
     case 14:
@@ -462,7 +596,9 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 17:
       ACCEPT_TOKEN(aux_sym__simple_variable_substitution_token1);
-      if (('a' <= lookahead && lookahead <= 'z')) ADVANCE(17);
+      if (('0' <= lookahead && lookahead <= '9') ||
+          ('A' <= lookahead && lookahead <= 'Z') ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(17);
       END_STATE();
     case 18:
       ACCEPT_TOKEN(anon_sym_DOLLAR_LBRACE);
@@ -2756,6 +2892,7 @@ extern const TSLanguage *tree_sitter_tcl(void) {
       tree_sitter_tcl_external_scanner_serialize,
       tree_sitter_tcl_external_scanner_deserialize,
     },
+    .primary_state_ids = ts_primary_state_ids,
   };
   return &language;
 }
