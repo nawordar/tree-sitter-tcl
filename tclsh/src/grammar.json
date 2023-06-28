@@ -728,8 +728,12 @@
   },
   "extras": [
     {
-      "type": "STRING",
-      "value": " "
+      "type": "PATTERN",
+      "value": "\\s"
+    },
+    {
+      "type": "PATTERN",
+      "value": "\\\\\\n"
     }
   ],
   "conflicts": [
